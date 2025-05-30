@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>현우의 홈페이지~!</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main section {
+      display: none;
+    }
+    main section.active {
+      display: block;
+    }
+    .center-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 0;
+    }
+    .center-image img {
+      max-width: 400px;
+      width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <ul>
+      <li onclick="showSection('greeting')">👋 인삿말</li>
+      <li onclick="showSection('subjects')">📚 학기별 수강과목</li>
+      <li onclick="showSection('gallery')">📸 갤러리</li>
+      <li onclick="showSection('graduation')">🎓 졸업이수</li>
+      <li onclick="showSection('family')">👨‍👩‍👦 가족정보</li>
+      <li onclick="showSection('awards')">🏆 수상이력</li>
+      <li onclick="showSection('sns')">📱 SNS</li>
+    </ul>
+  </aside>
+
+  <main>
+    <section id="blank" class="active">
+      <div class="center-image">
+        <img src="images2/20222292.jpg" alt="준비중 이미지">
+      </div>
+    </section>
+
+    <section id="greeting">
+      <h2>👋 인삿말</h2>
+      <p>안녕하세요! 저는 한남대학교 컴퓨터공학과 재학 중인 정현우입니다.<br>
+        저의 기록을 담은 이 홈페이지를 재미있게 구경해 주세요 💫</p>
+    </section>
+
+    <section id="subjects">
+      <h2>📚 수강 과목</h2>
+      <ul>
+        <li>2022-1: 만드는중</li>
+        <li>2022-2: 만드는중</li>
+      </ul>
+    </section>
+
+    <section id="gallery">
+
+        <h2>📸 내 갤러리</h2>
+        <div class="gallery-grid">
+            <img src="images/1.jpg" alt="gallery1">
+            <img src="images/2.jpg" alt="gallery2">
+            <img src="images/3.jpg" alt="gallery3">
+            <img src="images/4.jpg" alt="gallery4">
+            <img src="images/5.jpg" alt="gallery5">
+            <img src="images/6.jpg" alt="gallery6">
+            <img src="images/7.jpg" alt="gallery7">
+            <img src="images/8.jpg" alt="gallery8">
+            <img src="images/9.jpg" alt="gallery9">
+            <img src="images/10.jpg" alt="gallery10">
+            <img src="images/11.jpg" alt="gallery11">
+            <img src="images/12.jpg" alt="gallery12">
+            <img src="images/13.jpg" alt="gallery13">
+            <img src="images/14.jpg" alt="gallery14">
+            <img src="images/15.jpg" alt="gallery15">
+            <img src="images/16.jpg" alt="gallery16">
+            <img src="images/17.jpg" alt="gallery17">
+            <img src="images/18.jpg" alt="gallery18">
+            <img src="images/19.jpg" alt="gallery19">
+            <img src="images/20.jpg" alt="gallery20">
+            <img src="images/21.jpg" alt="gallery21">
+            <img src="images/22.jpg" alt="gallery22">
+            <img src="images/23.jpg" alt="gallery23">
+            <img src="images/24.jpg" alt="gallery24">
+            <img src="images/25.jpg" alt="gallery25">
+            <img src="images2/26.jpg" alt="gallery26">
+            <img src="images2/27.jpg" alt="gallery27">
+            <img src="images2/28.jpg" alt="gallery28">
+            <img src="images2/29.jpg" alt="gallery29">
+            <img src="images2/30.jpg" alt="gallery30">
+            <img src="images2/31.jpg" alt="gallery31">
+            <img src="images2/32.jpg" alt="gallery32">
+            <img src="images2/33.jpg" alt="gallery33">
+            <img src="images2/34.jpg" alt="gallery34">
+            <img src="images2/35.jpg" alt="gallery35">
+            <img src="images2/36.jpg" alt="gallery36">
+            <img src="images2/37.jpg" alt="gallery37">
+            <img src="images2/38.jpg" alt="gallery38">
+            <img src="images2/39.jpg" alt="gallery39">
+            <img src="images2/40.jpg" alt="gallery40">
+            <img src="images2/41.jpg" alt="gallery41">
+            <img src="images2/42.jpg" alt="gallery42">
+            <img src="images2/43.jpg" alt="gallery43">
+            <img src="images2/44.jpg" alt="gallery44">
+            <img src="images2/45.jpg" alt="gallery45">
+            <img src="images2/46.jpg" alt="gallery46">
+            <img src="images2/47.jpg" alt="gallery47">
+            <img src="images2/48.jpg" alt="gallery48">
+            <img src="images2/49.jpg" alt="gallery49"> </p>
+        </div>
+        <!-- ... -->
+        </div>
+    </section>
+    </div>
+    </section>
+
+    <section id="graduation">
+      <h2>🎓 졸업 이수 정보</h2>
+      <p>이수 학점: 사진첨부 예정</p>
+    </section>
+
+    <section id="family">
+      <h2>👨‍👩‍👦 가족 정보</h2>
+      <p>쓰는중.</p>
+    </section>
+
+    <section id="awards">
+      <h2>🏆 수상 이력</h2>
+      <p>2023 쓰는중</p>
+    </section>
+
+    <section id="sns">
+      <h2>📱 인스타그램</h2>
+      <p><a href="https://www.instagram.com/jhw_1202" target="_blank">@jhw_1202</a></p>
+    </section>
+  </main>
+
+<script>
+  function showSection(id) {
+    // 모든 섹션을 숨기기
+    document.querySelectorAll('main section').forEach(sec => {
+      sec.classList.remove('active');
+    });
+
+    // 해당 섹션만 표시
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+    }
+
+    // 시작 이미지 숨기기
+    const introImage = document.getElementById('intro-image');
+    if (introImage) {
+      introImage.style.display = 'none';
+    }
+  }
+</script>
