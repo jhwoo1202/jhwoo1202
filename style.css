@@ -80,7 +80,6 @@ h2 {
   position: relative;
 }
 
-
 .center-text {
   display: flex;
   justify-content: center;
@@ -96,14 +95,15 @@ h2 {
 }
 
 .center-image {
-  position: fixed; /* fixed로 하면 진짜 화면 기준 */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 0; /* 흰 여백 제거 */
+  padding: 0;
   margin: 0;
   z-index: 1;
 }
+
 .center-image img {
   display: block;
   max-width: 90vw;
@@ -115,10 +115,45 @@ h2 {
   border-radius: 0;
 }
 
-main section {
-  display: none;
+#guestbook-form input[type="text"],
+#guestbook-form textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-main section.active {
-  display: block;
+#guestbook-form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#guestbook-form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #86b7f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#guestbook-entries {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+#guestbook-entries li {
+  margin-bottom: 8px;
+  padding: 6px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.skill-card .skill-name {
+  font-weight: bold;
+  font-size: 1.1rem;
 }
