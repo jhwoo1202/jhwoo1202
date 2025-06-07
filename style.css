@@ -35,6 +35,8 @@ main {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: background 0.3s ease;
+    white-space: nowrap;       /* ✅ 줄바꿈 안 되게 */
+  overflow: hidden;          /* ✅ 넘치는 텍스트 숨김 */
 }
 
 .sidebar li:hover {
@@ -393,4 +395,212 @@ body {
     color: white;
   }
 
-  
+  .floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-icons span {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.7;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-20px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+
+.profile-circle,
+.floating-icons {
+  display: none;
+}
+
+/* 오직 #blank 섹션이 active일 때만 보이게 함 */
+#blank.active .profile-circle,
+#blank.active .floating-icons {
+  display: block;
+}
+
+/* 기본적인 위치 스타일도 함께 */
+.profile-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-icons span {
+  position: absolute;
+  font-size: 2.5rem;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating-icons span {
+  font-size: 2.2rem;
+  position: absolute;
+  opacity: 0.25;
+  animation: floatCloud 12s infinite ease-in-out;
+}
+
+/* 랜덤한 위치 지정 */
+.floating-icons span:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.floating-icons span:nth-child(2) { top: 20%; left: 70%; animation-delay: 2s; }
+.floating-icons span:nth-child(3) { top: 30%; left: 40%; animation-delay: 4s; }
+.floating-icons span:nth-child(4) { top: 50%; left: 10%; animation-delay: 1s; }
+.floating-icons span:nth-child(5) { top: 60%; left: 80%; animation-delay: 3s; }
+.floating-icons span:nth-child(6) { top: 70%; left: 25%; animation-delay: 5s; }
+.floating-icons span:nth-child(7) { top: 35%; left: 55%; animation-delay: 1.5s; }
+.floating-icons span:nth-child(8) { top: 45%; left: 65%; animation-delay: 2.5s; }
+.floating-icons span:nth-child(9) { top: 15%; left: 85%; animation-delay: 4.5s; }
+.floating-icons span:nth-child(10) { top: 75%; left: 50%; animation-delay: 3.5s; }
+.floating-icons span:nth-child(11) { top: 85%; left: 30%; animation-delay: 5.5s; }
+.floating-icons span:nth-child(12) { top: 25%; left: 15%; animation-delay: 6.5s; }
+
+@keyframes floatCloud {
+  0%   { transform: translateY(0) scale(1); opacity: 0.25; }
+  50%  { transform: translateY(-20px) scale(1.05); opacity: 0.35; }
+  100% { transform: translateY(0) scale(1); opacity: 0.25; }
+}
+
+.twinkle-only .stars span {
+  display: inline-block;
+  animation: twinkleStar 2.5s ease-in-out infinite;
+  font-size: 1.1rem;
+  color: gold;
+  transform-origin: center;
+}
+
+.twinkle-only .stars span:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.twinkle-only .stars span:nth-child(even) {
+  animation-delay: 0.6s;
+}
+
+@keyframes twinkleStar {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2) rotate(6deg);
+    opacity: 1;
+  }
+}
+
+.twinkle-only .stars span {
+  display: inline-block;
+  animation: twinkleStar 3.5s ease-in-out infinite;
+  font-size: 1.1rem;
+  color: gold;
+  transform-origin: center;
+}
+
+.twinkle-only .stars span:nth-child(odd) {
+  animation-delay: 0.3s;
+}
+.twinkle-only .stars span:nth-child(even) {
+  animation-delay: 0.8s;
+}
+
+@keyframes twinkleStar {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+  }
+}
+
+main section {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+main section.active {
+  display: block;
+  opacity: 1;
+}
+
+body {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+body.loaded {
+  opacity: 1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.15rem;
+  color: #888;
+  font-family: 'Nanum Pen Script', cursive;
+  opacity: 0.8;
+}
+
+.twinkle-only {
+  background: radial-gradient(circle, #fffbe6, #ffe9c8);
+  position: relative;
+}
+.twinkle-only::after {
+  content: '🧠';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  animation: spinBrain 2s linear infinite;
+  font-size: 1.5rem;
+}
+@keyframes spinBrain {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+#realtime-clock {
+  position: fixed;
+  top: 1.35px;
+  right: 40px;
+  font-size: 1.0rem;
+  font-weight: bold;
+  color: #111;
+  font-family: 'Gowun Dodum', sans-serif;
+  z-index: 999;
+  opacity: 0.9;
+}
+
+#type-text {
+  white-space: pre-wrap; /* 줄바꿈 반영 */
+}
+
