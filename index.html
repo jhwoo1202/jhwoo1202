@@ -73,27 +73,119 @@
       <li onclick="showSection('career')">🎯 희망 직무</li>
       <li onclick="showSection('sns')">📱 SNS</li>
       <li onclick="showSection('guestbook')">📄 방명록</li>
+
+
     </ul>
   </aside>
 
   <main>
 <section id="blank" class="active">
 
+<div class="floating-icons">
+  <span>☁️</span>
+  <span>🌈</span>
+  <span>🐶</span>
+  <span>🍓</span>
+  <span>🦊</span>
+  <span>🍕</span>
+  <span>🎀</span>
+  <span>🐰</span>
+  <span>😽</span>
+  <span>🌼</span>
+  <span>⭐</span>
+  <span>🧃</span>
+  <span>🐼</span>
+  <span>😼</span>
+  <span>🧸</span>
+  <span>🍑</span>
+  <span>🐥</span>
+  <span>🌈</span>
+  <span>☁️</span>
+</div>
+
   <div class="profile-circle">
     <img src="images2/20222292.jpg" alt="준비중 이미지">
   </div>
 </section>
 
- <section id="greeting">
+<section id="greeting">
   <h2>👋 인사말</h2>
-  <p>
-    안녕하세요, 컴퓨터공학과 정현우입니다!👋<br>
-    웹스크립트 과제로 시작했지만, 하다 보니 욕심이 생겨 할 수 있는 모든 것을 넣어 정성을 왕창 쏟아부었습니다🤣<br>
-    나름 오랜시간 붙잡고 열심히 만든 제 첫 홈페이지입니다.<br>
-    (갤러리에 진심인 편)<br>
-    가볍게 구경해보시고, 재밌게 좋게 봐주시면 감사하겠습니다~!! <br>
-  </p>
+  <p id="type-text"></p>
 </section>
+
+<style>
+  #type-text {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .writing span {
+    display: inline-block;
+    opacity: 0;
+    animation: appear 0.15s forwards;
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+
+  const greetingText = `안녕하세요, 컴퓨터공학과 정현우입니다! \n웹스크립트 과제로 시작했지만, 하다 보니 욕심이 생겨 할 수 있는 모든 것을 넣어 정성을 왕창 쏟아부었습니다. \n나름 오랜시간 붙잡고 열심히 만든 제 첫 홈페이지입니다. \n(갤러리에 진심인 편)\n가볍게 구경해주시고, 재밌게 좋게 봐주시면 감사하겠습니다~!!`;
+
+  function startHandwritingEffect() {
+    const textEl = document.getElementById("type-text");
+    if (!textEl) return;
+
+    textEl.innerHTML = "";
+    textEl.classList.remove("writing");
+
+const chars = greetingText.split("");
+chars.forEach((char, i) => {
+  if (char === "\n") {
+    textEl.appendChild(document.createElement("br"));
+  } else {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.animationDelay = `${i * 0.05}s`;
+    textEl.appendChild(span);
+  }
+});
+    void textEl.offsetWidth; // reflow for animation restart
+    textEl.classList.add("writing");
+
+    penSound.currentTime = 0;
+    penSound.play();
+
+    const totalDuration = chars.length * 0.05 * 1000;
+    setTimeout(() => penSound.pause(), totalDuration + 500);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const greetingBtn = document.querySelector('[onclick*="greeting"]');
+    if (greetingBtn) {
+      greetingBtn.addEventListener('click', () => {
+        setTimeout(() => {
+          startHandwritingEffect();
+        }, 200); // wait for section to become visible
+      });
+    }
+  });
+  
+</script>
+
 
 <section id="subjects">
   <h2>📚 수강 과목</h2>
@@ -136,7 +228,8 @@
 </section>
 
     <section id="gallery">
-      <h2>📸 내 갤러리</h2>
+<h2>📸 내 갤러리 <span style="font-size: 0.5em;">(많아도 놀라기 금지!!🤫)</span></h2>
+
       <div class="gallery-grid">
     <img src="images/1.jpg" alt="gallery1">
     <img src="images/2.jpg" alt="gallery2">
@@ -226,10 +319,13 @@
       <div class="skill-name">VS / VS Code</div>
       <div class="stars">★★★★☆</div>
     </div>
-    <div class="skill-card">
-      <div class="skill-name">잔머리 굴리기</div>
-      <div class="stars">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</div>
-    </div>
+<div class="skill-card twinkle-only">
+  <div class="skill-name">잔머리 굴리기</div>
+  <div class="stars">
+    <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+    <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+  </div>
+</div>
   </div>
 </section>
 
@@ -256,12 +352,12 @@
   <h2>🎯 희망 직무</h2>
   <p>
     안정성과 공익성을 중시하여 공공기관 또는 공무원 직무에 관심이 많습니다.<br>
-    특히 정보시스템 운영, 데이터 관리, 디지털 민원 서비스 개선 등 국민에게 실질적인 도움을 주는 IT 행정 분야에 기여하고자 합니다.
+    지역사회에 실질적인 도움을 주는 공공 IT 행정에 기여하고자 합니다.
   </p>
 <ul>
   <li><strong>공공기관 IT 직무</strong> (시스템 운영 및 유지보수)</li>
   <li><strong>교육행정직 공무원</strong> (정보화 행정 및 데이터 관리)</li>
-  <li><strong>지역 기반 공공서비스 디지털화 업무</strong></li>
+  <li><strong>디지털 전환(DX)및 스마트 행정 지원</strong> (데이터 기반 정책 수립)</strong></li>
 </ul>
 </section>
 
@@ -270,63 +366,102 @@
       <p><a href="https://www.instagram.com/jhw_1202" target="_blank">@jhw_1202</a></p>
     </section>
 
-    <section id="guestbook">
-      <h2>📄 방명록</h2>
-      <form id="guestbook-form">
-        <input type="text" id="guestbook-name" placeholder="닉네임" required><br>
-        <textarea id="guestbook-message" rows="4" placeholder="메시지를 작성해주세요 :)" required></textarea><br>
-        <button type="submit">글 보내기</button>
-      </form>
-      <ul id="guestbook-entries"></ul>
-    </section>
-  </main>
+<section id="guestbook">
+  <h2>📄 방명록</h2>
+  <form id="guestbook-form">
+    
+    
+    <input type="text" id="guestbook-name" placeholder="닉네임" required><br>
+    <textarea id="guestbook-message" rows="4" placeholder="메시지를 작성해주세요 :)" required></textarea><br>
+    <button type="submit">글 보내기</button>
+  </form>
+  <ul id="guestbook-entries"></ul>
+  <div id="pagination" style="margin-top: 1rem;"></div>
+</section>
+</main>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('main section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-      const target = document.getElementById(id);
-      if (target) {
-        target.classList.add('active');
-      }
-      const introImage = document.getElementById('intro-image');
-      if (introImage) {
-        introImage.style.display = 'none';
-      }
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('main section').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
     }
-
-    const form = document.getElementById('guestbook-form');
-    const nameInput = document.getElementById('guestbook-name');
-    const messageInput = document.getElementById('guestbook-message');
-    const entriesList = document.getElementById('guestbook-entries');
-
-    function loadGuestbook() {
-      const entries = JSON.parse(localStorage.getItem('guestbook') || '[]');
-      entriesList.innerHTML = '';
-      entries.forEach(entry => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>[${entry.name}]</strong> ${entry.message}`;
-        entriesList.appendChild(li);
-      });
+    const introImage = document.getElementById('intro-image');
+    if (introImage) {
+      introImage.style.display = 'none';
     }
+  }
+  
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = nameInput.value.trim();
-      const message = messageInput.value.trim();
-      if (name && message) {
-        const entries = JSON.parse(localStorage.getItem('guestbook') || '[]');
-        entries.push({ name, message });
-        localStorage.setItem('guestbook', JSON.stringify(entries));
-        nameInput.value = '';
-        messageInput.value = '';
-        loadGuestbook();
-      }
+  const form = document.getElementById('guestbook-form');
+  const nameInput = document.getElementById('guestbook-name');
+  const messageInput = document.getElementById('guestbook-message');
+  const entriesList = document.getElementById('guestbook-entries');
+  const pagination = document.getElementById('pagination');
+  const PER_PAGE = 6;
+  let currentPage = 1;
+
+  function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${month}월 ${day}일 ${hours}시 ${minutes}분`;
+  }
+
+  function loadGuestbook(page = 1) {
+    const entries = JSON.parse(localStorage.getItem('guestbook') || '[]').reverse();
+    entriesList.innerHTML = '';
+
+    const start = (page - 1) * PER_PAGE;
+    const pageEntries = entries.slice(start, start + PER_PAGE);
+
+    pageEntries.forEach(entry => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>[${entry.name}]</strong> ${entry.message}<br><small style="font-size: 0.85em; color: gray;">${formatDate(entry.timestamp)}</small>`;
+      entriesList.appendChild(li);
     });
 
-    loadGuestbook();
-  </script>
+    renderPagination(entries.length, page);
+  }
+
+  function renderPagination(total, currentPage) {
+    const totalPages = Math.ceil(total / PER_PAGE);
+    pagination.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      btn.disabled = i === currentPage;
+      btn.style.marginRight = '5px';
+      btn.onclick = () => loadGuestbook(i);
+      pagination.appendChild(btn);
+    }
+  }
+
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+    if (name && message) {
+      const timestamp = new Date().toISOString();
+      const entries = JSON.parse(localStorage.getItem('guestbook') || '[]');
+      entries.push({ name, message, timestamp });
+      localStorage.setItem('guestbook', JSON.stringify(entries));
+      nameInput.value = '';
+      messageInput.value = '';
+      loadGuestbook(1);
+    }
+  });
+
+  loadGuestbook(currentPage);
+</script>
 </body>
 </html>
 
@@ -338,3 +473,164 @@
 <!-- 본문용 -->
 <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.0/JalnanGothic.css" rel="stylesheet">
 
+<script>
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+</script>
+
+<footer class="footer">Made by 🧑‍💻정현우🙆‍♂️</footer>
+
+<div id="realtime-clock">현재 접속 시간: 오후 3:44:10</div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('ko-KR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  document.getElementById('realtime-clock').textContent = `현재 접속 시간: ${timeStr}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+<div id="greeting-msg" style="
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  font-size: 0.9rem;
+  font-family: 'Gowun Dodum', sans-serif;
+  color: #555;
+  z-index: 999;
+"></div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const hour = new Date().getHours();
+    const greeting =
+      hour < 6 ? "이 시간에...!? 🌙" :
+      hour < 12 ? "좋은 아침입니다. 오늘 하루도 화이팅!!☀️" :
+      hour < 18 ? "낮잠 자기 좋은시간.. 😴" :
+      "오늘 하루도 수고 많으셨습니다. 편안한 저녁 보내세요 ✨";
+
+    document.getElementById("greeting-msg").textContent = greeting;
+  });
+
+  function showSection(id) {
+    document.querySelectorAll('main section').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+    }
+
+    const greeting = document.getElementById("greeting-msg");
+    if (greeting) {
+      greeting.remove();
+    }
+
+  }
+</script>
+
+<script>
+  document.addEventListener('mousemove', function (e) {
+    const emoji = ["✨", "🌸", "💖", "🎈", "⭐", "🥹", "🌟"];
+    const el = document.createElement('span');
+    el.textContent = emoji[Math.floor(Math.random() * emoji.length)];
+    el.style.position = 'fixed';
+    el.style.left = e.clientX + 'px';
+    el.style.top = e.clientY + 'px';
+    el.style.pointerEvents = 'none';
+    el.style.fontSize = '1.2rem';
+    el.style.opacity = '1';
+    el.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+    document.body.appendChild(el);
+
+    setTimeout(() => {
+      el.style.transform = 'translateY(-30px)';
+      el.style.opacity = '0';
+    }, 10);
+
+    setTimeout(() => {
+      el.remove();
+    }, 700);
+  });
+</script>
+
+
+
+
+
+
+
+<div id="quote-box" style="
+  position: fixed;
+  bottom: 20px;
+  left: 12px;
+  width: 140px;
+  min-height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 0.82rem;
+  color: #333;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  z-index: 9999;
+  box-sizing: border-box;
+  line-height: 1.4;
+  overflow: hidden;
+">
+  <div style="font-weight: bold;">현우식 어록💬:</div>
+  <div id="quote-text" style="margin-top: 4px;">로딩 중...</div>
+</div>
+<script>
+const quotes = [
+  "가는 말이 고우면 얕본다.",
+  "감사의 표시는 돈으로 하라.",
+  "결혼은 좋은 짝이 되는 것부터다.",
+  "고생 끝에 골병난다.",
+  "교복을 줄일수록 성적도 내려간다.",
+  "개천에서 용 난 놈 만나면 개천으로 빨려들어간다.",
+  "내일도 할 수 있는 일을 굳이 오늘 할 필요는 없다.",
+  "늦었다고 생각할 때가 진짜 늦었다.",
+  "내 너 그럴 줄 알았다, 알았으면 미리 말해줘라.",
+  "동정할 거면 돈으로 줘라.",
+  "가난이 대문으로 오면 사랑은 창문으로 도망간다.",
+  "선배면 입은 닫고 지갑은 열어라.",
+  "성공은 1% 재능과 99% 빽.",
+  "시작은 반이 아니다. 시작일 뿐이다.",
+  "세상은 넓고 할 일은 많지 않다.",
+  "새벽 치킨과 맥주는 0칼로리.",
+  "안 되면 말고.",
+  "어려운 길은 그냥 비추.",
+  "일찍 일어난 새가 피곤하다.",
+  "일찍 일어나는 벌레는 빨리 잡아 먹힌다.",
+  "원수는 회사에서 만난다.",
+  "잘생긴 놈은 얼굴값, 못생긴 놈은 꼴값.",
+  "죽음과 결혼은 미룰수록 좋다.",
+  "즐길 수 없으면 피하라.",
+  "지금 공부 안 하면 나중에 밖에서 덥고 춥게 일함.",
+  "참을 인 세 번이면 호구.",
+  "티끌 모아 티끌.",
+  "포기하면 편하다.",
+  "하나를 보고 열을 알면 무당.",
+  "효도는 셀프.",
+  "뭘 무서워, 그냥 하는거지. 어려운 난관이 이것만 있겠어?",
+  "중요한건 꺾였는데도 그냥 하는 마음",
+  "피할 수 없다면... 한번만 더 피해보자."
+];
+
+  function updateQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById("quote-text").textContent = quotes[randomIndex];
+  }
+
+  updateQuote();
+
+setInterval(updateQuote, 10000);
+</script>
