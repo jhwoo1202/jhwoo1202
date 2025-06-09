@@ -19,43 +19,41 @@
 ---
 ## 이력서 관련 추가 기능 목록
 
-> **기능 제목 / 설명 / 코드 위치 / 코드 설명** 형태로 작성
-
-| 번호 | 기능 제목 | 설명 | 코드 위치 | 코드 설명 |
-|------|-----------|------|------------|------------|
-
-| 1 | 인삿말 타자 애니메이션 | 인삿말 클릭 시 글자가 타자 치듯 한 글자씩 출력됨
-| HTML `#greeting`, JS `startHandwritingEffect()` | `span` 단위로 나눠 `animation-delay` 적용 |
-
-| 2 | 나의 스킬 카드 + 별점 | 각 스킬을 카드로 보여주고 숙련도는 별로 표현
-| HTML `#skills`, CSS `.skills-grid`, `.stars` | 별 개수로 숙련도 표시, ‘잔머리’는 별 반짝임 애니메이션 |
-
-| 3 | 갤러리 + Hover 확대 | 이미지 5열 배치, hover 시 확대됨
-| HTML `#gallery`, CSS `.gallery-grid img:hover` | `transform: scale(2.5)`로 확대, `z-index`로 겹침 방지 |
-
-| 4 | 방명록 기능 | 닉네임/메시지를 입력해 글 남기고 저장
-| HTML `#guestbook`, JS `form.addEventListener` | `localStorage`에 저장 후 `loadGuestbook()`으로 출력 |
-
-| 5 | 방명록 페이징 기능 | 방명록을 6개씩 끊어 페이지별로 출력
-| JS `renderPagination()`, `PER_PAGE = 6` | 버튼 클릭 시 해당 페이지 항목만 `slice()`로 출력 |
-
-| 6 | 인스타그램 연동 | 본인 인스타그램 링크 연결
-| HTML `#sns` → `<a href="https://www.instagram.com/jhw_1202">` | `target="_blank"`로 새 창에서 열리도록 설정 |
-
-| 7 | 실시간 접속 시간 표시 | 현재 시간을 초 단위로 표시
-| HTML `#realtime-clock`, JS `updateClock()` | `toLocaleTimeString` 사용, 1초마다 `setInterval()` 갱신 |
-
-| 8 | 시간대별 인삿말 출력 | 접속 시간에 따라 멘트 자동 변경
-| JS `DOMContentLoaded`, `Date().getHours()` | 시간대에 따라 상단 인사말 다르게 출력 |
-
-| 9 | 랜덤 어록 출력 | 어록이 10초마다 바뀜
-| HTML `#quote-box`, JS `updateQuote()` | 어록 배열에서 랜덤 선택, `setInterval()`로 갱신 |
-
-| 10 | 마우스 이모지 효과 | 마우스 움직일 때 이모지가 따라다님
-| JS `document.addEventListener('mousemove')` | 랜덤 이모지를 커서 위치에 출력 후 사라지게 설정 |
-
-| 11 | 첫 화면 프로필 + 플로팅 아이콘 | 첫 화면에서만 프로필과 아이콘 떠다님
-| HTML `#blank`, CSS `.floating-icons`, `.profile-circle` | `#blank.active`일 때만 이미지/아이콘 보이도록 설정 |
+| 번호 | 기능 제목 | 설명 |
+|------|-----------|------|
+| **1** | **인삿말 타자 애니메이션** | 인삿말 클릭 시 글자가 타자 치듯 한 글자씩 출력됨  
+📍 코드 위치: `index.html (#greeting)`, `script.js - startHandwritingEffect()`  
+📎 구현 방식: 문자열을 `span` 단위로 나눈 후 `animation-delay`로 타자 효과 구현 |
+| **2** | **나의 스킬 카드 + 별점** | 각 스킬을 카드 형식으로 보여주며 별(★)로 숙련도 표시  
+📍 코드 위치: `index.html (#skills)`, `style.css (.skills-grid, .stars)`  
+📎 구현 방식: 별 개수로 숙련도 시각화, ‘잔머리’는 별 반짝임 애니메이션 적용 |
+| **3** | **갤러리 Hover 확대** | 갤러리 이미지 5열 배치, 마우스 hover 시 이미지 확대  
+📍 코드 위치: `index.html (#gallery)`, `style.css (.gallery-grid img:hover)`  
+📎 구현 방식: `transform: scale(2.5)`로 확대, `z-index`로 겹침 방지 |
+| **4** | **방명록 작성 기능** | 닉네임과 메시지를 입력해 방명록에 글 등록  
+📍 코드 위치: `index.html (#guestbook)`, `script.js - form.addEventListener()`  
+📎 구현 방식: `localStorage`에 저장 후 `loadGuestbook()`으로 렌더링 |
+| **5** | **방명록 페이징 기능** | 한 페이지에 6개씩 방명록 항목 출력  
+📍 코드 위치: `script.js - renderPagination()`, `PER_PAGE = 6`  
+📎 구현 방식: `slice()`로 항목 분할, 버튼 클릭 시 해당 페이지만 렌더링 |
+| **6** | **인스타그램 연동** | 본인 인스타그램 링크 연결  
+📍 코드 위치: `index.html (#sns)`  
+📎 구현 방식: `<a href="https://www.instagram.com/jhw_1202">` + `target="_blank"` |
+| **7** | **실시간 접속 시간 표시** | 현재 시간을 초 단위로 실시간 표시  
+📍 코드 위치: `index.html (#realtime-clock)`, `script.js - updateClock()`  
+📎 구현 방식: `toLocaleTimeString()` + `setInterval(1000)` |
+| **8** | **시간대별 인삿말 자동 출력** | 접속 시간에 따라 다른 인사말 자동 출력  
+📍 코드 위치: `script.js - DOMContentLoaded`, `Date().getHours()`  
+📎 구현 방식: 시간대 조건문에 따라 텍스트 설정 |
+| **9** | **랜덤 어록 출력** | 하단에 명언이 10초마다 랜덤 교체  
+📍 코드 위치: `index.html (#quote-box)`, `script.js - updateQuote()`  
+📎 구현 방식: 배열에서 랜덤 선택 + `setInterval()` |
+| **10** | **마우스 이모지 효과** | 마우스를 움직이면 이모지가 따라다님  
+📍 코드 위치: `script.js - document.addEventListener('mousemove')`  
+📎 구현 방식: 커서 위치에 span 생성 후 `setTimeout()`으로 제거 |
+| **11** | **첫 화면 전용 아이콘 효과** | 첫 화면(`#blank`)에서만 프로필 + 플로팅 이모지 표시  
+📍 코드 위치: `index.html (#blank)`, `style.css (.floating-icons, .profile-circle)`  
+📎 구현 방식: `.active` 클래스가 있을 때만 `display: block` |
 
 ---
 ## 디자인/테마
