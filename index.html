@@ -533,9 +533,12 @@ window.addEventListener('DOMContentLoaded', () => {
     hour < 20 ? "오늘 하루도 수고 많았어요 :) 편안한 저녁 보내세요 🌃" :
                 "이제 푹 쉴 시간이에요. 좋은 꿈 꾸세요~ ✨";
 
-  document.getElementById("greeting-msg").textContent = greeting;
+  const msgBox = document.getElementById("greeting-msg");
+  if (msgBox) {
+    msgBox.textContent = greeting;
+    msgBox.style.display = 'block';
+  }
 });
-
 
   function showSection(id) {
     document.querySelectorAll('main section').forEach(sec => {
@@ -545,7 +548,11 @@ window.addEventListener('DOMContentLoaded', () => {
     if (target) {
       target.classList.add('active');
     }
-
+ const greetingBox = document.getElementById("greeting-msg");
+  if (greetingBox) {
+    greetingBox.style.display = 'none';
+  }
+}
   }
 </script>
 
