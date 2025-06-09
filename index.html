@@ -163,7 +163,7 @@ chars.forEach((char, i) => {
     textEl.appendChild(span);
   }
 });
-    void textEl.offsetWidth;
+    void textEl.offsetWidth; // reflow for animation restart
     textEl.classList.add("writing");
 
     penSound.currentTime = 0;
@@ -179,7 +179,7 @@ chars.forEach((char, i) => {
       greetingBtn.addEventListener('click', () => {
         setTimeout(() => {
           startHandwritingEffect();
-        }, 200);
+        }, 200); // wait for section to become visible
       });
     }
   });
@@ -282,7 +282,7 @@ chars.forEach((char, i) => {
     <img src="images2/49.jpg" alt="gallery49"></p>
     </div>
     
-
+        <!-- ... -->
       </div>
     </section>
       </div>
@@ -361,7 +361,6 @@ chars.forEach((char, i) => {
 
   </div>
 </section>
-
 
 <section id="career">
   <h2>🎯 희망 직무</h2>
@@ -481,11 +480,11 @@ chars.forEach((char, i) => {
 </html>
 
 
-<!-- 인삿말 -->
+<!-- 인삿말용 -->
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<!-- 사이드바 -->
+<!-- 사이드바용 -->
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-<!-- 본문 -->
+<!-- 본문용 -->
 <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2107@1.0/JalnanGothic.css" rel="stylesheet">
 
 <script>
@@ -553,7 +552,6 @@ window.addEventListener('DOMContentLoaded', () => {
     greetingBox.style.display = 'none';
   }
 }
-  }
 </script>
 
 <script>
@@ -580,6 +578,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 700);
   });
 </script>
+
+
+
+
+
+
 
 <div id="quote-box" style="
   position: fixed;
