@@ -523,17 +523,19 @@ updateClock();
 "></div>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const hour = new Date().getHours();
-    const greeting =
-      hour < 6 ? "이 시간에...!? 🌙" :
-      hour < 12 ?  "좋은 아침이에요! 오늘도 멋진 하루가 시작되네요 ☀️" :
-      hour < 15 ? "낮잠 자기 좋은시간..😴 커피 한잔 어때요? ☕" :
-      hour < 18 ? "이젠 슬슬 배고파지네요.. 🍔" :
-      hour < 20 ? "오늘 하루도 수고 많았어요 :) 편안한 저녁 보내세요 🌃";
-      "이제 푹 쉴 시간이에요. 좋은 꿈 꾸세요~ ✨";
-    document.getElementById("greeting-msg").textContent = greeting;
-  });
+window.addEventListener('DOMContentLoaded', () => {
+  const hour = new Date().getHours();
+  const greeting =
+    hour < 6 ? "이 시간에...!? 🌙" :
+    hour < 12 ? "좋은 아침이에요! 오늘도 멋진 하루가 시작되네요 ☀️" :
+    hour < 15 ? "낮잠 자기 좋은시간..😴 커피 한잔 어때요? ☕" :
+    hour < 18 ? "이젠 슬슬 배고파지네요.. 🍔" :
+    hour < 20 ? "오늘 하루도 수고 많았어요 :) 편안한 저녁 보내세요 🌃" :
+                "이제 푹 쉴 시간이에요. 좋은 꿈 꾸세요~ ✨";
+
+  document.getElementById("greeting-msg").textContent = greeting;
+});
+
 
   function showSection(id) {
     document.querySelectorAll('main section').forEach(sec => {
@@ -542,11 +544,6 @@ updateClock();
     const target = document.getElementById(id);
     if (target) {
       target.classList.add('active');
-    }
-
-    const greeting = document.getElementById("greeting-msg");
-    if (greeting) {
-      greeting.remove();
     }
 
   }
