@@ -598,10 +598,6 @@ body.loaded {
   opacity: 0.9;
 }
 
-#greeting-msg {
-  display: none;
-}
-
 #type-text {
   white-space: pre-wrap;
 }
