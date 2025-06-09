@@ -1,10 +1,10 @@
 # 정현우 이력 홈페이지
 
-📌 작성자: `정현우 (20222292)`  
-📆 제출일: 2025년 6월 13일 금요일
-📘 과목명: 웹스크립트 프로그래밍  
+작성자: `정현우 (20222292)`  
+제출일: 2025년 6월 13일 금요일
+과목명: 웹스크립트 프로그래밍  
 ---
-## 🧑‍💻 concept
+## concept
 
 본 홈페이지는 정현우의 이력&활동 홈페이지 입니다.
 학습 내용 정리뿐 아니라 저만의 감성과 개성을 표현하는 데에도 중점을 두었습니다.
@@ -14,7 +14,7 @@
 - 🔗 **GitHub Pages 배포 주소:**  
   [https://jhwoo1202.github.io](https://jhwoo1202.github.io)
 
-- 📁 **GitHub Repository 주소:**  
+- **GitHub Repository 주소:**  
   [https://github.com/jhwoo1202/jhwoo1202.github.io](https://github.com/jhwoo1202/jhwoo1202.github.io)
 ---
 ## 이력서 관련 추가 기능 목록
@@ -58,8 +58,8 @@
 | HTML `#blank`, CSS `.floating-icons`, `.profile-circle` | `#blank.active`일 때만 이미지/아이콘 보이도록 설정 |
 
 ---
-## 🎨 디자인/테마
+## 디자인/테마
 
 - 외부 테마 미사용  
-- 직접 제작한 **파스텔 계열 랜덤 그라데이션 테마** 사용  
+- 스스로 만든 **파스텔 계열 랜덤 그라데이션 테마** 사용  
 ---
