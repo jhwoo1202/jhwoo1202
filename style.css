@@ -262,7 +262,6 @@ body {
   height: 100vh;
 }
 
-/* 반응형 대응도 같이 */
 @media (max-width: 768px) {
   .profile-circle {
     width: 65vw;
@@ -423,7 +422,6 @@ body {
 .floating-icons {
   display: none;
 }
-
 
 #blank.active .profile-circle,
 #blank.active .floating-icons {
@@ -601,4 +599,3 @@ body.loaded {
 #type-text {
   white-space: pre-wrap;
 }
-
