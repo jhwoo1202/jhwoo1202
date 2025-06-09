@@ -12,10 +12,10 @@
 ## GitHub주소
 
 - 🔗 **GitHub Pages 배포 주소:**  
-  [https://jhwoo1202.github.io](https://jhwoo1202.github.io)
+  https://jhwoo1202.github.io](https://jhwoo1202.github.io
 
 - **GitHub Repository 주소:**  
-  [https://github.com/jhwoo1202/jhwoo1202.github.io](https://github.com/jhwoo1202/jhwoo1202.github.io)
+  https://github.com/jhwoo1202/jhwoo1202.github.io](https://github.com/jhwoo1202/jhwoo1202.github.io
 ---
 ## 이력서 관련 추가 기능 목록
 
