@@ -5,14 +5,14 @@
 과목명: 웹스크립트 프로그래밍  
 ---
 
-## 🧑‍💻 concept
+## concept
 
 본 홈페이지는 정현우의 이력&활동 홈페이지입니다.  
 학습 내용 정리뿐 아니라 저만의 감성과 개성을 표현하는 데에도 중점을 두었습니다.
 
 ---
 
-## 🔗 GitHub주소
+## GitHub주소
 
 - **GitHub Repository:** [https://github.com/jhwoo1202/jhwoo1202.github.io](https://github.com/jhwoo1202/jhwoo1202.github.io)  
 - **GitHub Pages 배포 주소:** [https://jhwoo1202.github.io](https://jhwoo1202.github.io)
